@@ -39,7 +39,7 @@ static const char unknown_str[] = "n/a";
  * load_avg            load average                    NULL
  * netspeed_rx         receive network speed           interface name (wlan0)
  * netspeed_tx         transfer network speed          interface name (wlan0)
- * num_files           number of files in a directory  path
+ * num_files           number of filssssssssss in a directory  path
  *                                                     (/home/foo/Inbox/cur)
  * ram_free            free memory in GB               NULL
  * ram_perc            memory usage in percent         NULL
@@ -63,7 +63,22 @@ static const char unknown_str[] = "n/a";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  */
+// static const struct arg args[] = {
+// 	/* function format          argument */
+// 	{ datetime, "%s ",           "%T" },
+// 	{ battery_perc, "battery:%s%% ",       "BAT0" },
+// 	{ ram_perc, "ram:%s%% ",       		NULL },
+// 	{ cpu_perc, "cpu:%s%% ",       		NULL },
+// 	{ vol_perc, "vol:%s%% ",       		NULL },
+// };
+
 static const struct arg args[] = {
 	/* function format          argument */
-	{ datetime, "%s",           "%F %T" },
+	{ run_command, "  %s |", "svol -p" },
+	{ wifi_perc, " \uf1eb %3s%% |", "wlan0" },
+	{ cpu_perc, " \uf2db %3s%%", NULL },
+	{ temp, " %2s°C |", "/sys/class/thermal/thermal_zone0/temp" },
+	{ ram_perc, " \uf538 %3s%% |", NULL },
+	{ battery_perc, " \uf240 %3s%% |", "BAT0" },
+	{ datetime, " %s", "%R " },
 };
