@@ -6,8 +6,8 @@ const unsigned int interval = 1000;
 /* text to show if no value can be retrieved */
 static const char unknown_str[] = "n/a";
 
-/* maximum output string length */
-#define MAXLEN 2048
+/* maximum command output length */
+#define CMDLEN 128
 
 /*
  * function            description                     argument (example)
@@ -39,7 +39,7 @@ static const char unknown_str[] = "n/a";
  * load_avg            load average                    NULL
  * netspeed_rx         receive network speed           interface name (wlan0)
  * netspeed_tx         transfer network speed          interface name (wlan0)
- * num_files           number of filssssssssss in a directory  path
+ * num_files           number of files in a directory  path
  *                                                     (/home/foo/Inbox/cur)
  * ram_free            free memory in GB               NULL
  * ram_perc            memory usage in percent         NULL
@@ -63,21 +63,15 @@ static const char unknown_str[] = "n/a";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  */
-// static const struct arg args[] = {
-// 	/* function format          argument */
-// 	{ datetime, "%s ",           "%T" },
-// 	{ battery_perc, "battery:%s%% ",       "BAT0" },
-// 	{ ram_perc, "ram:%s%% ",       		NULL },
-// 	{ cpu_perc, "cpu:%s%% ",       		NULL },
-// 	{ vol_perc, "vol:%s%% ",       		NULL },
-// };
-
 static const struct arg args[] = {
-	/* function format          argument */
-	{ run_command, "vol: %s%% | ", "svol -p" },
-	{ wifi_perc, "wifi:%3s%% | ", "wlan0" },
-	{ cpu_perc, "cpu:%3s%% | ", NULL },
-	{ ram_used, "ram:%3s | ", NULL },
-	{ battery_perc, "bat:%3s%% | ", "BAT0" },
-	{ datetime, "%s", "%R" },
+	/* function 	format       		argument 	interval signal */
+	{ run_command	,"vol: %s%% | "		,"svol -p" 	,0	, 10	},
+	{ wifi_perc 	,"wifi:%3s%% | "	,"wlan0" 	,5	, -1	},
+	{ cpu_perc 	,"cpu:%3s%% | "	 	,NULL 		,1	, -1	},
+	{ ram_used 	,"ram:%3s | " 		,NULL 		,1	, -1	},
+	{ battery_perc 	,"bat:%3s%% | "	 	,"BAT0" 	,10	, -1	},
+	{ datetime 	,"%s" 			,"%R" 		,60	, -1	},
 };
+
+/* maximum output string length */
+#define MAXLEN CMDLEN * LEN(args)
