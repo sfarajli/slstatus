@@ -70,7 +70,8 @@ static const struct arg args[] = {
 	{ cpu_perc 	,"cpu:%3s%% | "	 	,NULL 		,1	, -1	},
 	{ ram_used 	,"ram:%3s | " 		,NULL 		,1	, -1	},
 	{ battery_perc 	,"bat:%3s%% | "	 	,"BAT0" 	,10	, -1	},
-	{ datetime 	,"%s" 			,"%R" 		,60	, -1	},
+	{ run_command	,"brg: %s%% | "		,"slight -p"	,0	, 10 	},
+	{ datetime 	,"%s" 			,"%R" 		,0	, -1	},
 };
 
 /* maximum output string length */
