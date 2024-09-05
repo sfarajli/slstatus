@@ -29,19 +29,16 @@ Write to stdout instead of WM_NAME.
 .It Fl 1
 Write once to stdout and quit.
 .El
-.Sh CUSTOMIZATION
-.Nm
-can be customized by creating a custom config.h and (re)compiling the source
-code. This keeps it fast, secure and simple.
 .Sh SIGNALS
 .Nm
 responds to the following signals:
-.Pp
 .Bl -tag -width TERM -compact
 .It USR1
 Triggers an instant redraw.
+
+
+.It
+Use slreload script to reload slstatus.
 .El
-.Sh AUTHORS
-See the LICENSE file for the authors.
 .Sh SEE ALSO
 .Xr dwm 1
