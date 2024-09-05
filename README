@@ -1,65 +1,32 @@
 slstatus - suckless status
 ==========================
-slstatus is a small tool for providing system status information to other
-programs over the EWMH property of the root window (used by dwm(1)) or
-standard input/output. It is designed to be as efficient as possible by
-only issuing the minimum of system calls required.
+Small tool for providing system information,
+Forked from git.suckless.org/slstatus
 
 
-Features
---------
-- Battery percentage/state/time left
-- Cat (read file)
-- CPU usage
-- CPU frequency
-- Custom shell commands
-- Date and time
-- Disk status (free storage, percentage, total storage and used storage)
-- Available entropy
-- Username/GID/UID
-- Hostname
-- IP address (IPv4 and IPv6)
-- Kernel version
-- Keyboard indicators
-- Keymap
-- Load average
-- Network speeds (RX and TX)
-- Number of files in a directory (hint: Maildir)
-- Memory status (free memory, percentage, total memory and used memory)
-- Swap status (free swap, percentage, total swap and used swap)
-- Temperature
-- Uptime
+Modules
+-------
 - Volume percentage
-- WiFi signal percentage and ESSID
+- Wifi Connection
+- CPU percentage
+- Ram usage
+- Battery percentage
+- Backlight percentage
+- Date and time
 
 
-Requirements
-------------
-Currently slstatus works on FreeBSD, Linux and OpenBSD.
-In order to build slstatus you need the Xlib header files.
 
-- For volume percentage on Linux the kernel module `snd-mixer-oss` must be
-  loaded.
-- For volume percentage on FreeBSD, `sndio` must be installed.
+Installing
+----------
+It is recommended to not build slstatus from this repo but
+instead use git.farajli.net/slcf, since it includes all the
+scripts scripts that are necessary for some of the modules,
+For building it from slcf refer to the given link.
 
-
-Installation
-------------
-Edit config.mk to match your local setup (slstatus is installed into the
-/usr/local namespace by default).
-
-Afterwards enter the following command to build and install slstatus (if
-necessary as root):
-
-    make clean install
+If scripts are to be ignored, run
+make install
 
 
-Running slstatus
-----------------
-See the man page for details.
-
-
-Configuration
+Added patches
 -------------
-slstatus can be customized by creating a custom config.h and (re)compiling the
-source code. This keeps it fast, secure and simple.
+- https://tools.suckless.org/slstatus/patches/signals
