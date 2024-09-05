@@ -50,7 +50,7 @@ dist: clean
 	mkdir -p "slstatus/components"
 	cp -R LICENSE Makefile README config.mk config.h \
 	      arg.h slstatus.h slstatus.c $(REQ:=.c) $(REQ:=.h) \
-	      slstatus.1 "slstatus"
+	      slreload slstatus.1 "slstatus"
 	cp -R $(COM:=.c) "slstatus/components"
 	tar -czf slstatus.tar.gz slstatus
 	rm -rf "slstatus"
