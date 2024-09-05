@@ -19,7 +19,7 @@ Modules
 Installing
 ----------
 It is recommended to not build slstatus from this repo but
-instead use git.farajli.net/slcf, since it includes all the
+instead use git.farajli.net/slcf, since it pulls all the
 scripts scripts that are necessary for some of the modules,
 For building it from slcf refer to the given link.
 
