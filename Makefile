@@ -44,17 +44,16 @@ slstatus: slstatus.o $(COM:=.o) $(REQ:=.o)
 	$(CC) -o $@ $(LDFLAGS) $(COM:=.o) $(REQ:=.o) slstatus.o $(LDLIBS)
 
 clean:
-	rm -f slstatus slstatus.o $(COM:=.o) $(REQ:=.o) slstatus-${VERSION}.tar.gz
+	rm -f slstatus slstatus.o $(COM:=.o) $(REQ:=.o) slstatus.tar.gz
 
-dist:
-	rm -rf "slstatus-$(VERSION)"
-	mkdir -p "slstatus-$(VERSION)/components"
-	cp -R LICENSE Makefile README config.mk config.def.h \
+dist: clean
+	mkdir -p "slstatus/components"
+	cp -R LICENSE Makefile README config.mk config.h \
 	      arg.h slstatus.h slstatus.c $(REQ:=.c) $(REQ:=.h) \
-	      slstatus.1 "slstatus-$(VERSION)"
-	cp -R $(COM:=.c) "slstatus-$(VERSION)/components"
-	tar -cf - "slstatus-$(VERSION)" | gzip -c > "slstatus-$(VERSION).tar.gz"
-	rm -rf "slstatus-$(VERSION)"
+	      slstatus.1 "slstatus"
+	cp -R $(COM:=.c) "slstatus/components"
+	tar -czf slstatus.tar.gz slstatus
+	rm -rf "slstatus"
 
 install: all
 	mkdir -p "$(DESTDIR)$(PREFIX)/bin"
