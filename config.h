@@ -71,7 +71,7 @@ static const struct arg args[] = {
 	{ ram_used 	,"ram:%3s | " 		,NULL 		,2	, -1	},
 	{ battery_perc 	,"bat:%3s%% | "	 	,"BAT0" 	,10	, -1	},
 	{ run_command	,"brg: %s%% | "		,"slight -p"	,0	, 10 	},
-	{ datetime 	,"%s" 			,"%R" 		,60	, -1	},
+	{ datetime 	,"%s " 			,"%R" 		,60	, -1	},
 };
 
 /* maximum output string length */
