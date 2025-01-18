@@ -44,16 +44,16 @@ slstatus: slstatus.o $(COM:=.o) $(REQ:=.o)
 	$(CC) -o $@ $(LDFLAGS) $(COM:=.o) $(REQ:=.o) slstatus.o $(LDLIBS)
 
 clean:
-	rm -f slstatus slstatus.o $(COM:=.o) $(REQ:=.o) slstatus.tar.gz
+	rm -f slstatus slstatus.o $(COM:=.o) $(REQ:=.o) slstatus-farajli-$(VERSION).tar.gz
 
 dist: clean
-	mkdir -p "slstatus/components"
+	mkdir -p "slstatus-farajli-$(VERSION)/components"
 	cp -R LICENSE Makefile README config.mk config.h \
 	      arg.h slstatus.h slstatus.c $(REQ:=.c) $(REQ:=.h) \
-	      slreload slstatus.1 "slstatus"
-	cp -R $(COM:=.c) "slstatus/components"
-	tar -czf slstatus-farajli.tar.gz slstatus
-	rm -rf "slstatus"
+	      slreload slstatus.1 "slstatus-farajli-$(VERSION)"
+	cp -R $(COM:=.c) "slstatus-farajli-$(VERSION)/components"
+	tar -czf slstatus-farajli-$(VERSION).tar.gz slstatus-farajli-$(VERSION)
+	rm -rf "slstatus-farajli-$(VERSION)"
 
 install: all
 	mkdir -p "$(DESTDIR)$(PREFIX)/bin"
