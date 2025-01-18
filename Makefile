@@ -52,7 +52,7 @@ dist: clean
 	      arg.h slstatus.h slstatus.c $(REQ:=.c) $(REQ:=.h) \
 	      slreload slstatus.1 "slstatus"
 	cp -R $(COM:=.c) "slstatus/components"
-	tar -czf slstatus.tar.gz slstatus
+	tar -czf slstatus-farajli.tar.gz slstatus
 	rm -rf "slstatus"
 
 install: all
