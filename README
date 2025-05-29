@@ -1,7 +1,7 @@
 slstatus - suckless status
 ==========================
 Small tool for providing system information,
-Forked from git.suckless.org/slstatus
+Forked from https://git.suckless.org/slstatus
 
 
 Modules
@@ -25,7 +25,7 @@ make install
 Note
 ----
 Some modules require scripts available at 
-https://git.farajli.net/slcf/ to function properly.
+https://git.farajli.net/slcf to function properly.
 
 
 Added patches
