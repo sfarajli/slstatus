@@ -66,7 +66,7 @@ static const char unknown_str[] = "n/a";
 static const struct arg args[] = {
 	/* function 	format       		argument 	interval signal */
 	{ run_command	,"vol: %s%% | "		,"svol -p" 	,0	, 10	},
-	{ wifi_perc 	,"wifi:%3s%% | "	,"wlan0" 	,5	, -1	},
+	/* { wifi_perc 	,"wifi:%3s%% | "	,"wlan0" 	,5	, -1	}, */
 	{ cpu_perc 	,"cpu:%3s%% | "	 	,NULL 		,2	, -1	},
 	{ ram_used 	,"ram:%3s | " 		,NULL 		,2	, -1	},
 	{ battery_perc 	,"bat:%3s%% | "	 	,"BAT0" 	,10	, -1	},
